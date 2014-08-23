@@ -4,7 +4,7 @@ module.exports = function (game, screen) {
     return {
         preload: function () {
             // Load assets
-            game.load.image('logo', '../../img/logo.png');
+            game.load.image('logo', 'img/logo.png');
             game.physics.startSystem(Phaser.Physics.ARCADE);
         },
         create: function () {
