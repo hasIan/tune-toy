@@ -1,20 +1,24 @@
-var Phaser = require('./phaser.min');
+var Phaser = require('phaser');
 var stateNames = ['spin', 'spin-scale'];
-
-function loadStates(stateNames, game, screen) {
-    var state;
-    for (stateName in stateNames) {
-        state = require('./effects/' + stateName)(game, screen);
-        game.state.add(stateName, state);
-        console.log('Added state', stateName);
-    }
-}
-
 var screen = {
     x: window.innerWidth - 20,
     y: window.innerHeight - 20
 };
+var stage = new Phaser.Game(screen.x, screen.y, Phaser.AUTO, 'mainDiv');
+var states = {
+  'spin': require('./effects/spin')(stage, screen),
+  'spin-scale': require('./effects/spin-scale')(stage, screen)
+};
+var selectedState = window.location.hash.slice(1);
+selectedState = states[selectedState] ? selectedState : 'spin'
 
-var stage = new Phaser.Game(screen.x, screen.y, Phaser.AUTO, 'tuneDiv');
-loadStates(stateNames, stage, screen);
-stage.state.start('spin');
+function loadStates(states, game, screen) {
+    var state, i;
+    for (state in states) {
+        game.state.add(state, states[state]);
+        console.log('Added state', state);
+    }
+}
+
+loadStates(states, stage, screen);
+stage.state.start(selectedState);
