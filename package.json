@@ -1,0 +1,46 @@
+{
+  "name": "tune-toy",
+  "version": "0.0.1",
+  "description": "Animation and graphics experimentation for fun and profit.",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "~3.8.7",
+    "gulp-rename": "~1.2.0",
+    "gulp-util": "~3.0.0"
+  },
+  "devDependencies": {
+    "gulp-rename": "~1.2.0",
+    "gulp-util": "~3.0.0",
+    "gulp": "~3.8.7",
+    "gulp-browserify": "~0.5.0",
+    "browserify": "~4.2.3",
+    "browserify-shim": "~3.6.0",
+    "del": "~0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hasian/tune-web-screensaver.git"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "phaser": "global:Phaser"
+  },
+  "keywords": [
+    "phaser",
+    "javascript",
+    "screensaver"
+  ],
+  "author": "Ian Molee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasian/tune-web-screensaver/issues"
+  },
+  "homepage": "https://github.com/hasian/tune-web-screensaver"
+}
