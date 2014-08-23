@@ -4,8 +4,10 @@ var gutil      = require('gulp-util');
 var rename     = require('gulp-rename');
 var del        = require('del');
 
-gulp.task('default', ['browserify'], function() {
-  return gulp.src(['www/**/*.html', 'www/img'])
+gulp.task('default', ['build']);
+
+gulp.task('build', ['browserify'], function() {
+  return gulp.src(['www/**/*.html', 'www/img/*'], { base: 'www' })
     .pipe(gulp.dest('dist'));
 });
 
@@ -22,6 +24,6 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('clean', function(cb) {
-    return del(['dist'], cb);
+gulp.task('clean', function() {
+    return del.sync(['dist']);
 });
