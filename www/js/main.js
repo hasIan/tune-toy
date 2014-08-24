@@ -1,8 +1,8 @@
 var Phaser = require('phaser');
 var stateNames = ['spin', 'spin-scale'];
 var screen = {
-    x: window.innerWidth - 20,
-    y: window.innerHeight - 20
+    x: window.innerWidth,
+    y: window.innerHeight
 };
 var stage = new Phaser.Game(screen.x, screen.y, Phaser.AUTO, 'mainDiv');
 var states = {
